@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>
+      <a href="">Home</a>
+    </li>
+  </ul>
+
+  <script>
+    var greetings;
+
+    //자바스크립트는 문자값을 표현할 때 쌍따옴표("")와
+    //홑따옴표('') 모두 사용이 가능하나,
+    //홑따옴표('') 를 주로 많이 사용한다.
+    greetings = "안녕하세요!"; //(o)
+    greetings = '하이!'; // (o)
+
+    //문자값을 표현할 때 ``빽틱도 가능하다.
+    //단, 리터럴을 표현할 때 ``빽틱을 사용한다.
+    greetings = `반갑습니다!`;
+
+    //var exStr = "그는 나에게 "위험해!" 라고 말했다."; (x)
+    //var exStr = "그는 나에게 \"위험해!\" 라고 말했다."; (o)
+
+    //홑따옴표로 문자열이다라는 것을 얘기하고,
+    //쌍따옴표라 기호가 있다는 것을 홑따옴표 안에 사용해준다.
+    var exStr = '그는 나에게 "위험해!" 라고 말했다.';
+    console.log(exStr);
+
+    /*
+      탈출문자(escape sequence)
+      문자열 내에서 특정 명령 혹은 원하는 값을 처리하기 위해 사용하는 기호
+
+      \n: 줄 개행
+      \t: 탭 (들여쓰기 공백 4개)
+      \": 특수문자 "표기
+      \': 특수문자 '표기
+    */
+
+    //문자열은 한 줄로 표현해야 한다.
+    var tag = '<ul>\n\t<li>\n\t\t<a href="">Home</a>\n\t</li>\n</ul>';
+
+    //템플릿 리터럴: 빽틱(``)으로 감싼 문자열
+    //공백과 들여쓰기, 줄 개행 등을 모두 문자열로 인정해 준다.
+
+    var tag2 = `<ul>
+    <li>
+      <a href="">Home</a>
+    </li>
+</ul>`;
+    console.log(tag);
+    console.log(tag2);
+
+    console.log('--------------------------------------');
+
+    var month = 12;
+    var day = 25;
+    var anni = '크리스마스';
+
+    //12월 25일은 크리스마스입니다.
+
+    //문자열과 문자열 간에는 덧셈 연산이 가능하다.
+    //문자열과 문자열을 더하면 문자열을 단순히 연결해서 결합한 결과가 나옵니다.
+    //문자열과 다른 데이터 타입간의 덧셈 연산은 전체 결과를 문자열 취급합니다.
+    console.log(month+'월 '+day+'일은 '+anni+' 입니다.');
+
+    //템플릿 리터럴을 이용한 포맷팅 출력 방식
+    //`(백틱) ${변수명} ...`;
+    console.log(`${month}월 ${day}일은 ${anni} 입니다.`);
+
+
+  </script>
+</body>
+</html>
