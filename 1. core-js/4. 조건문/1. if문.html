@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    var point = +prompt('점수를 입력하세요.');
+    alert(`당신의 점수는 ${point} 입니다.`);
+
+    // 사용자가 입력한 점수에 따라 합격의 여부를 출력하는 조건문 작성하기
+    // 변수 point가 갖는 점수가 70 이상이면, 그 결과는 true고,
+    // if 블록 내의 코드는 조건식이 true일 경우에만 동작한다.
+    if (point >= 70) {
+      // 조건식(point >= 70)의 결과가 참일 경우 실행되는 명령문
+      alert('합격입니다~!');
+    } else {
+      // 조건식(point >= 70)의 결과가 거짓일 경우 실행되는 명령문
+      alert('불합격입니다.');
+    }
+    
+    alert('시험 치르느라 고생 많으셨습니다.');
+
+  </script>
+</body>
+
+</html>
