@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // 비교연산자는 항상 값이 boolean 값이 출력된다.
+    // 좌항과 우항의 크기가 같다: ==
+    // 좌항과 우항의 값이 다르다: !=
+
+    // 변수 2개를 선언
+    // 변수 a에는 숫자, b에는 문자열을 대입함.
+    var a = 5,
+      b = '5';
+
+    //a와 b는 타입이 다르지만, javascript의 경우, 문자열을 숫자로 변환
+    //변환한 값으로 숫자 대 숫자로 같은지를 비교해서 true가 나온다. 황당하네
+    console.log(a == b);
+
+    // 타입의 동등 여부를 확인하는 연산자(===)를 사용, a와 b의 타입을 비교한다.
+    console.log(a === b);
+
+    /*
+      ==연산자는 암묵적으로 문자열 내부에 숫자가 있다면
+      자동으로 숫자로 변환한 후에 비교합니다.
+      ===을 사용하면 타입까지 일치하는지를 비교합니다.
+    */
+
+    // console.log('=============================================');
+    // if(a===b) {
+    //   console.log(a-b);
+    // } else {
+    //   console.log(`a와 b의 타입이 ${a===b}라서 연산을 진행할 수 없습니다.`);
+    // }
+
+    console.log('=============================================');
+    //동등 비교(==)는 결과 예측이 힘들기 때문에 사용을 권장하지 않는다.
+    console.log('0' == ''); // false
+    console.log(0 == ''); // true
+    console.log(0 == '0'); // true
+    console.log(false == 'false'); // false
+    console.log(false == '0'); // true
+
+    //일치 비교(===)에서는 NaN을 주의해야 한다.
+    //NaN은 자신과 일치하지 않는 유일한 값이다.
+    console.log(NaN === NaN); //false
+
+    //문자열 비교
+    console.log('=============================================');
+    console.log('apple' === 'apple'); //true
+
+    //일치 비교(===)시 하나라도 대문자라면 false가 출력된다.
+    //대/소문자를 철저하게 구분한다. 
+    console.log('apple' === 'APPLE'); //false
+
+    //문자열끼리의 대소 비교
+    //***문자열끼리의 대소 비교는 유니코드 문자 번호를 기준으로 한다.
+    //유니코드: 전 세계의 문자를 번호로 지정한 규격 0 ~65535
+
+    //사전에서 앞에 나올 수록 작은 것이다.
+    //peach는 zebra보다 사전 앞에 등재되어 있기 때문에 peach가 zebra보다 작은 것이고, 결과 값은 true가 나온다.
+    console.log('peach' < 'zebra'); //true
+    console.log('감자' < '고구마'); //true
+
+    //같은 문자일경우, 사전 등재 순서로 판단,
+    //알파벳 대문자가 소문자보다 작다. 
+    console.log('peach' < 'Zebra'); //false
+
+
+
+
+  </script>
+</body>
+
+</html>

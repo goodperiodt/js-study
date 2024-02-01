@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    //논리 타입(boolean)
+    //논리형(boolean) 값은 true와 false 두 가지다.
+    var logical = false;
+    logical = true;
+
+    //logical = True; (대문자로 작성한 True는 논리값 표현이 아니다.)
+    console.log(typeof logical);
+    console.log(logical);
+
+    //0은 false, 0이 아닌 나머지 정수는 true로 해석한다.
+    var apple = 0;
+    console.log(typeof apple); //number
+
+    //if(만약) apple의 값이 true(0 이외의 값)라면 if문 다음 {} 중괄호 안에 있는 명령문이 실행되고, apple의 값이 false(0)라면 else 블럭안에 명령문이 실행된다.
+    if(apple) {
+      console.log(`사과가 ${apple}개 있습니다.`);
+    } else {
+      console.log('사과가 하나도 없습니다.');
+    }
+
+    //'값이 없다'의 종류
+    
+    //null
+    //의도적으로 값이 없다는 것을 명시할 때 사용하는 값.
+    var banana = '바나나';
+    banana = null;
+    console.log(typeof banana); //null은 타입이 객체이지만, 아직 그 어느것도 참조하지[가리키지] 않은 상태이다.
+
+    //undefined
+    //값을 할당하지 않은 변수에 암묵적으로 할당되는 값.
+    //변수를 선언하고, 변수에 값을 할당(초기화, 대입, 저장)하지 않은 경우에 자동적으로 할당되는 값이다.
+    //아직! 한 번도 값이 저장되지 않은 경우다.
+    var i;
+    console.log(typeof i);
+
+  </script>
+</body>
+</html>
