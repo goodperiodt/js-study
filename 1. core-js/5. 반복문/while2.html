@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 48 ~ 150사이의 정수 중 8의 배수만 출력해 보자.
+    // 48: begin, 150: end, step: 8의 배수 -> 어떤 수를 8로 나누었을 때, 나머지가 없다면 8의 배수다.
+
+    // var n = 48; //begin
+
+    // while(n <= 150) {//end
+    //   if(n%8 === 0) {
+    //     console.log(n);
+    //   }
+    //   n++; //step
+    // }
+
+    // while(n<=150) {
+    //   console.log(n);
+    //   n+=8;
+    // }
+
+    //1000의 약수의 개수를 구하세요.
+    //약수는 나누어 떨어지는 수
+
+    //모든 수들의 가장 작은 약수는 1
+    //모든 수들의 가장 큰 약수는 자기 자신
+
+    var i = 1; //begin
+    var count = 0; //나누어지는 횟수 누적
+
+    while (i <= 1000) { //end
+      if (1000 % i === 0) {
+        //나누어떨어질 때마다 count의 값을 1씩 증가시키겠다.
+        count++;
+      }
+      i++; //step
+    }
+
+    console.log(`1000의 약수의 개수는 ${count}개다`);
+
+    /*
+         # 사용자에게 구구단 단수를 입력받아서
+         해당 단수의 구구단을 출력해 보세요.
+         ex)
+         
+         구구단을 입력하세요: 4
+         *** 구구단 4 단 ***
+         4 x 1 = 4
+         4 x 2 = 8
+         4 x 3 = 12
+         4 x 4 = 16 
+         .
+         .
+         .
+         4 x 9 = 36
+         */
+
+    var n = +prompt('출력하고 싶은 구구단 단수를 입력하세요 ');
+    console.log(`*** 구구단 ${n}단 ***`);
+    //구구단 시작 단수: 2, 구구단 끝나는 단수: 9
+
+    //var j = 1;
+    var begin = 1;
+
+    if (n >= 2 && n <= 9) {
+      while (begin <= 9) {
+        console.log(`${n} x ${begin} = ${n*begin}`);
+        begin++;
+      }
+
+    } else {
+      console.log('구구단의 단수를 다시 입력해주세요');
+    }
+    
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    /*
+         # while문의 진행 순서.
+         1. 제어변수를 선언함. (시작값이 정해짐)
+         2. while문의 조건식을 검사해서 true면 반복문이 시작.
+          false라면 반복문 종료.
+         3. while문 블록 내부가 한 번 진행되면(끝까지 내려가면)
+          다시 조건식을 검사하여 true라면 반복문 계속 진행,
+          false라면 반복문 종료.
+         4. 반복문 내에는 증감식을 배치해서 제어변수의 값을 조정.
+         */
+
+    var n = 1; // 제어변수: 반복문의 횟수를 제어할 변수 (begin)
+
+    //while(반복문의 끝을 지정하는 논리형 조건식(end)) {}
+    while(n <= 10){
+      // while 블록 내부에는 반복하고자 하는 문장을 작성합니다.
+      console.log(n+'번 손님 안녕하세요~!');
+      // console.log(`${n}번 손님 안녕하세요~!`);
+      n++; // 증감식: 반복문의 종료를 위해 제어변수의 값을 조정(step)
+    }
+    console.log('-------------------------------------------------');
+
+    // 1~10까지의 누적 합계 구하기
+    var total = 0; // 누적결과를 담아야 한다. 누적합계를 기억할 변수가 필요하다.
+    var start = 1; // 제어변수(begin), 1부터 시작할거야
+    var end = 10;
+
+    while(start<=end){ //i는 10보다 같거나 작을동안 {}내부의 명령문이 반복한다.
+      total+=start; //기존의 total이 가지고 있는 값에 i를 더한 값을 누적해서 다시 total에 담는다[대입한다]. -> total=total+i;
+      start++; //i가 1씩 증감하는 것이 반복됩니다. //step
+    }
+
+    // ??? start의 값이 왜 11인가?
+    console.log(`${start}부터 ${end}까지의 누적합계는 ${total}이다.`);
+
+  </script>
+</body>
+
+</html>
