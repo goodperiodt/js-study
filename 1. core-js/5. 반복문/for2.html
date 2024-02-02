@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    /*
+    - 1. 정수 한 개를 입력받고,
+    - 2. 입력받은 정수가 소수(prime number) 인지를 판별하면 된다.    
+         *소수는 나누어 떨어지는 것이 1(고정)과 자기자신(입력받은 것이니 변함)밖에 없는 것
+    */
+
+    var n = +prompt('정수를 하나 입력하세요');
+    var count = 0;
+
+
+    for(var i=1; i<=n; i++) { //1부터 시작해서 입력받은 값(n)에 도달할 때까지 1씩 증가 
+      //소수는 1과 자기자신을 약수로 가진다는 것
+      //소수는 몫을 1과 자기자신을 가졌을 때, 나머지는 0이다.
+      //소수가 나머지가 0일 경우는 2번
+      if(n%i===0) {
+        count++;
+      }
+    }
+
+    if(count===2){
+      console.log(`${n}은(는) 소수입니다.`);
+    } else {
+      console.log(`${n}은(는) 소수가 아닙니다.`);
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    for (var i = 1; i <= 10; i++) {
+      // break문은 조건이 필요하다.
+      if (i > 6)
+        //i가 7일 때, true고, true일 때, break문이 실행된다.
+        //if문 다음 블록{}이 품고 있는 코드가 한 줄이면 블록{} 생략이 가능하다.
+        break;
+
+      console.log('i: ' + i);
+    }
+    console.log('반복문 종료');
+
+    console.log('==========================================');
+
+
+    /*
+         - 내부 반복문에 포함된 break로 바깥쪽 반복문까지 한번에
+          종료시키고 싶다면 바깥쪽 반복문에 label을 붙입니다.
+          그리고, break 선언 시 label을 함께 선언합니다. 
+    */
+    outer: for (var i = 0; i <= 2; i++) { //i:0 , i가 2가 될때까지 1씩 증가한다.
+      for (var j = 0; j <= 1; j++) { // j가 0일때, j는 0부터 시작, j는 1보다 작거나 같을 때까지 j는 1씩 증가한다.
+        // 0 - 0
+        // 0 - 1
+
+        // 1 - 0 ---> 출력 
+        // 1 - 1 
+
+        // 2 - 0 ---> 출력 
+        // 2 - 1 ---> 출력 
+        if (i == j) break outer;
+        console.log(`${i} - ${j}`);
+      }
+    }
+  </script>
+</body>
+
+</html>

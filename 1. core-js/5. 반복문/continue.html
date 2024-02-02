@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    //for문에서의 continue문은 증감식을 바로 발동시킨다.
+    //continue문을 만나면 continue문 이하의 문장은 실행되지 않는다.
+    for(var i=1; i<=10; i++) {
+      if(i%2===0) continue; //i를 2로 나누었을 때, 나누어 떨어진다면,
+      // 나누어 떨어진다는 것은 나머지가 0이고, 나머지가 0이라는 것은 2의 배수라는 것이다. 2의 배수라는 것은 짝수들의 집합을 의미한다.
+      // i가 짝수라면 참이고, 참이면, 짝수를 건너뛴다. 건너뛴다는 것은 아래 코드를 실행하지 않고, 증감식으로 바로 넘어간다.
+      console.log('i: '+i);
+    }
+    console.log('반복문 종료');
+
+
+    //while문에서는 continue를 만나면 증감식이 동작하는 것이 아닌
+    //코드의 흐름이 조건식으로 바로 이동한다.
+    
+    while(true) {
+      var n = +prompt('숫자를 입력! ');
+      if(n === 0) break;
+      else if(n===1) continue;
+
+      alert('아직 안끝났지롱~~~');
+    }
+    alert('끝났지롱~~~');
+
+
+
+
+  </script>
+</body>
+</html>

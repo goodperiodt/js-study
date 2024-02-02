@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    // var i =1; //begin
+    // var sum = 0;
+    // while(i<=10) { // end
+    //   sum += i;
+    //   i++; // step
+    // }
+    // console.log(`while문으로 작성한 값의 결과 값은 ${sum} 입니다.`);
+
+    //while: 반복 횟수가 명확하지 않은 경우 많이 사용한다.
+    //for: 반복 횟수가 명확한 경우 많이 사용한다.
+
+    // var total = 0;
+    // for(var i=1; i<=10; i++) {
+    //   total += i;
+    // }
+
+    // console.log(`for문으로 작성한 값의 결과 값은 ${total} 입니다.`);
+    
+    //1~200까지의 정수 중 6의 배수이면서 12의 배수는 아닌 수의 개수를 출력. (for)
+    
+    // var count = 0;
+    // for(var i=1; i<=200; i++){
+    //   if(i%6===0 && !(i%12===0)) {
+    //     console.log(`i의 값은 ${i}다.`);
+    //     count++;
+    //   }
+    // }
+    
+    // console.log(`1~200까지의 정수 중 6의 배수이면서 12의 배수는 아닌 수의 개수는 ${count} 입니다.`);
+
+    //문제: 정수를 하나 입력받아서
+    //입력받은 정수까지의 팩토리얼 값을 구하세요.
+    //팩토리얼: 5! -> 5x4x3x2x1
+
+    var n = +prompt('팩토리얼을 구할 정수 값을 입력해주세요');
+    //begin: n
+    //end: 1
+    //step: n-1
+    var fac = 1; //팩토리얼 최종 값을 담을 변수 -> 곱해야 돼서 1
+
+
+
+    // while(n<1) { //n이 1보다 작거나 같을 때까지
+    //   total += n*(n-1);
+    //   n--;
+    // }
+
+    //방법 1:
+    // for(var i = 1; i <= n; i++) {
+    //   fac = fac*i;
+    // }
+
+    for(var i=n; i>=1; i--) { //사용자가 5를 입력했다면, 5가 1보다 크거나 같아질 때까지, 5의 값을 하나씩 작아지게 만들겠다.
+      fac=fac*i;
+    }
+
+    console.log(`${n}의 팩토리얼 값은 ${fac} 입니다.`);
+    
+    
+
+
+
+  </script>
+</body>
+</html>

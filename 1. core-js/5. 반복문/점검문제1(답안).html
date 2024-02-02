@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //초기 난이도 설정 선택창 띄우기
+    var level = +prompt('난이도를 선택하세요!\n# [1. 상(3번의 기회) | 2. 중(6번의 기회) | 3. 하(10번의 기회)]');
+
+    //초기 카운트 수
+    var initCount;
+    if(level===1) {
+      initCount = 3;
+    } else if (level === 2) {
+      initCount = 6;
+    } else if (level === 3) {
+      initCount = 10;
+    } else {
+      alert('잘못 입력했으니 난도 상으로 강제 조정됩니다.');
+      initCount = 3;
+    }
+
+    var countDown = initCount; // 카운트다운 변수
+
+    //실제로 정답으로 사용할 랜덤 정수 만들기
+    var secret = Math.floor(Math.random()*100)+1
+    console.log('secret: '+secret);
+
+    //입력값의 최소, 최대값
+    var min = 1, max = 100;
+
+    while(true) {
+      var answer = +prompt(`숫자를 입력하세요! [${min}~${max}]`);
+      //입력값 유효성 검사
+      //지금 입력한 값이 유효 범위 내의 값인가?
+      if(min>answer || max<answer) {
+        alert('범위 안의 값을 입력하세요!');
+        //while문안에서 continue를 만나는 순간
+        //하기 코드는 무시하고, 조건으로 이동한다.
+        continue;
+      }
+
+      //코드의 흐름이 유효한 값을 입력한 것이다. (바로 위 if문을 통과함)
+      //입력할 기회를 먼저 감소시킨다.
+      countDown--;
+
+
+      if(secret===answer) {
+        alert(`정답입니다. ${initCount-countDown}번만에 맞추셨네요!`); //게임 종료 조건 1
+        break;
+      } else if(secret>answer) {
+        alert('up!');
+        min=answer+1;
+      } else if(secret<answer) {
+        alert('down!');
+        max=answer-1;
+      } 
+      
+      
+      // 추가 게임 종료 조건
+      if (countDown===0) {
+        alert(`패배하셨습니다. 정답은 ${secret} 이었습니다.`);
+        break;
+      } else {
+        alert(`${countDown} 번의 기회가 남았습니다.`);
+      }
+    }
+
+    alert('수고하셨습니다.');
+
+  </script>
+</body>
+</html>
