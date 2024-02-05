@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    - Quiz. 
+    아래 요구사항에 맞는 코드를 작성하고 
+    브라우저에서 실행하여 테스트하세요.
+    - 요구사항
+    1. kakao 변수에 배열 
+    ['무지', '네오', '어피치', '라이언', '제이지']
+    을 저장하세요.   
+
+    2. 사용자에게 삭제할 멤버 이름을 입력받고 (confirm 함수로 다시 한 번 확인) 
+
+    해당 멤버를 배열에서 삭제시킨 뒤
+    삭제 완료 후의 배열을 출력해서 보여주세요.
+    3. 배열에 없는 이름을 입력하면 'xxx는 잘못된 이름입니다.'라고 
+    출력한 후 다시 삭제할 이름을 입력할 수 있도록 하세요.
+
+
+    4. 모두를 정확하게 삭제할 때까지 프로그램은 계속되어야 합니다.
+    */
+
+    // 카카오 멤버 선언
+    var kakao = ['무지', '네오', '어피치', '라이언', '제이지'];
+
+
+    // 모든 멤버가 삭제될 때까지 while(true) {...}문으로 무한 루프를 돌린다.
+    
+    /*
+    while (true) {
+
+      if (kakao.length === 0) {
+        alert('친구들이 모두 삭제되었습니다. \n프로그램을 종료 합니다.');
+        break;
+      }
+
+      var inputM = prompt(`현재 멤버: ${kakao}\n삭제할 이름을 입력하세요!`);
+
+      //입력한 이름이 배열에 존재하는지 여부를 확인하는 includes() 메서드
+      if (kakao.includes(inputM)) {
+        if (confirm(`입력하신 이름: ${inputM} 이(가) 맞습니까?`)) {
+          //입력한 이름이 배열에 존재하고, 사용자가 정말로 삭제하겠다고, 확인을 누르면, indexOf() 함수로 해당 이름을 찾는데, indexOf()는 해당 이름이 배열에서 몇 번째에 있는지 index를 알려준다.
+          var idx = kakao.indexOf(inputM);
+          //console.log(kakao[idx]);
+          var realDelMember = kakao.splice(idx, 1);
+          alert(`삭제한 멤버는 ${realDelMember} 입니다.`);
+
+        } else {
+          alert(`${inputM}은(는) 잘못된 이름입니다. 다시 입력하세요.`);
+          //continue;
+          //continue를 작성해도 괜찮은데, else 구문을 빠져나가면 다시 while문이 반복되기 때문에 continue를 작성할 필요가 굳이 필요없다.
+
+        }
+      }
+    }
+    */
+
+    //kakao의 length가 0이 아니라면 -> true
+    //kakao.length가 1이라도 존재하면 true -> 0이면 false
+    //계속 삭제할 거라 논리표현식의 조건으로 kakao.length 만 작성해도 좋다.
+    //while(kakao.length !==0 ) {...}
+
+    //while 조건식에 kakao.length를 지정해서, length가 0이 되면 false값을 띌 수 있도록 -> 반복문 종료
+    while(kakao.length) {
+      var delName = prompt(`현재 멤버: ${kakao}\n삭제할 이름을 입력하세요!`);
+
+      var idx = kakao.indexOf(delName);
+      if(idx=== -1) {
+        alert(`${delName}은 잘못된 이름입니다. 다시 입력하세요.`);
+      } else {
+        kakao.splice(idx, 1);
+        alert('삭제 완료!\n남은 멤버: '+kakao);
+      }
+    }
+  </script>
+</body>
+
+</html>
