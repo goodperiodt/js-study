@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    var ex = 10 + '20';
+    console.log(`ex의 값의 ${ex}, 타입은 ${typeof ex} 입니다.`); //1020 타입은 문자
+
+    var ex2 = 10 * '3';
+    console.log(`ex2의 값의 ${ex2} 입니다. 타입은 ${typeof ex2} 입니다.`); // 30 타입은 number
+
+    ex2 = 100 + '';
+    console.log('ex2: ' + typeof ex2); //string
+
+    //문자열 타입의 암묵적 숫자 변환
+    //정수를 입력받고 싶으면, prompt앞에 +를 붙이는데, 그것과 같은 맥락
+    //좌항을 비워두고, +기호를 붙여 숫자를 입력받으면, 타입이 문자가 아닌 숫자로 인식된다.
+    var ex3 = +'550'; //number
+
+    //문자형 앞에 +를 붙이면 NaN -> 숫자가 아니다 라고 나옴.
+    ex3 = +'false'; //number -> NaN
+
+    //논리 타입을 암묵적 숫자 변환
+    ex3 = +true; // 1
+    ex3 = +false; // 0
+    ex3 = +null; //0
+    ex3 = +NaN; // NaN, 타입은 number다.
+
+    console.log(ex3);
+    console.log('ex3: ' + typeof ex3); //number
+
+    console.log('---------------------------');
+
+    // Truthy, Falsy
+    // undefined, null, 0, NaN, ''(빈 문자열)은 모두 false
+    // 나머지는 모두 true로 인식한다.
+
+    // 함수가 반환하는 값, 비동기 통신의 결과 값들이
+    // 정확하게 어떤 값인지 모르더라도 해당 값이 띄고 있는
+    // 논리적 평가에 따라 조건문을 좀 더 수월하게 작성할 수 있다.
+
+    // if(논리형 값) -> if다음 ()내부에는 true 아니면 false인 논리형 값이 입력되어야 한다.
+    // 아무 값도 참조하지 않거나 비어있으면 부정적인 값 즉, false다.
+    if ('') console.log('OK1'); //만약에 비어있는(false) 문자열이라면, false다.
+    if ('hello') console.log('OK2');
+
+    // 변수가 있는데, 값이 정의되어 있지 않은 undefined,
+    // 즉 값이 비어있다는 것, 이것도 false다.
+    if (undefined) console.log('OK3');
+
+    // null은 값을 의도적으로 대입/저장/참조하지 않았다는 것,
+    // 즉 비어 있어 false다.
+    if (null) console.log('OK4'); 
+    if (350) console.log('OK5');
+
+    //숫자가 아니다, false다.
+    if (NaN) console.log('OK6'); 
+
+    //0은 false다.
+    if (0) console.log('OK7'); 
+    if ([1, 2, 3]) console.log('OK8');
+
+    //if(ex3 && ex4) { } -> if(ex3 !== null and ex4 !== null) { }
+    //ex3 그리고 ex4 두 변수의 값이 비어있지 않다면, 즉 null이 아니라면
+    
+  </script>
+</body>
+
+</html>
