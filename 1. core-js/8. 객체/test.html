@@ -47,11 +47,15 @@
 */
 
 
-    //회원 객체(userInfo) 안에 있는 회원 배열(user.Info.userList)을 따로 꺼내서 변수로 선언하면 작성자체가 쉬워진다.
-
-    //userInofo라는 userList(회원 배열)을 쉽게 꺼내기 위해 변수를 선언해준다.
+    //users에는 사용자 객체가 여러 개 담겨있는 배열이다.
     var users = userInfo.userList;
+    console.log(typeof users);
+    console.log(users);
     
+    var number = [1, 2, 3];
+    console.log(typeof number);
+
+
     // 1. 사용자에게 계정을 입력받으세요.
     // while (true) {
     //   var inputAccount = prompt('ID를 입력해주세요');

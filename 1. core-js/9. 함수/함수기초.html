@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    //함수의 선언
+    //함수 이름은 동사적 기능이 내포되게 짓습니다.
+    function calcTotal(end) {
+      console.log('함수가 호출됨');
+
+      var total = 0;
+      for(var n=1; n <= end; n++) {
+        total+=n;
+      }
+
+      return total;
+    }
+
+    //add라는 이름의 함수고, 두 개의 값을 사용자로부터 받고,
+    //받은 두 개의 값을 더해서 반환하는 함수다.
+    function add(n1, n2) {
+      return n1+n2;
+    }
+
+    //함수를 리터럴 방식으로 선언하겠다.
+    var add2 = function(n1, n2) {
+      return n1+n2;
+    }
+
+    //함수의 호출
+    //함수의 return값은 함수를 호출한 곳으로 반환됩니다.
+    console.log(calcTotal(300));
+
+    //함수의 호출 행위 자체가 하나의 return 값으로 처리될 수 있기 때문에
+    //반환 값을 변수에 대입하는 것도 가능합니다.
+    var result = calcTotal(50);
+    console.log(result);
+
+    console.log(add(10, 20));
+    console.log(add2(10, 20));
+
+    
+
+  </script>
+</body>
+</html>
