@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    var userInfo = {
+      userList: [{
+          account: 'kim1234',
+          password: 'kkk1111',
+          username: '김철수'
+        },
+
+        {
+          account: 'park4321',
+          password: 'ppp4321',
+          username: '박영희'
+        },
+
+        {
+          account: 'hong1234',
+          password: 'hhh1111',
+          username: '홍길동'
+        }
+
+      ]
+    }
+
+
+    /*
+- 요구사항
+1. 사용자에게 계정을 입력받으세요.
+
+2. 입력된 계정이 존재하는 계정이 아니라면
+   "존재하지 않는 회원입니다"를 출력하세요.
+3. 계정이 존재한다면 비밀번호를 입력받으세요.
+4. 비밀번호가 입력한 아이디에 대응해서 일치한다면
+   "xxx님 환영합니다!"을 출력하고 반복문을 탈출하세요.
+5. 비밀번호가 다르다면 "비밀번호가 틀렸습니다" 를 출력하세요.
+6. 로그인이 성공할때까지 반복하세요.
+*/
+
+
+    //회원 객체(userInfo) 안에 있는 회원 배열(user.Info.userList)을 따로 꺼내서 변수로 선언하면 작성자체가 쉬워진다.
+
+    //userInofo라는 userList(회원 배열)을 쉽게 꺼내기 위해 변수를 선언해준다.
+    var users = userInfo.userList;
+    // 1. 사용자에게 계정을 입력받으세요.
+    while (true) {
+      var inputAccount = prompt('ID를 입력해주세요');
+
+      var foundUser = null; //사용자가 입력한 아이디와 일치하는 객체를 담을 변수
+
+
+
+      //userList 배열 순회는 for of 를 사용해야 한다
+      //배열은 for-of -> 사용자의 객체가 저장된 배열의 데이터를 모두 출력한다.
+      for (var user of users) {
+        if (inputAccount === user.account) {
+          foundUser = user
+          break;
+        }
+      }
+
+      // 위의 반복문이 끝났음에도 foundUser가 null이라면 일치하는 객체가 없다는 것이다.
+      if (foundUser === null) {
+        alert('아이디가 존재하지 않습니다.');
+        continue;
+      }
+
+      var inputPassword = prompt(`${foundUser.account}님 비밀번호를 입력하세요!`);
+
+      if (inputPassword === foundUser.password) {
+        alert(`${foundUser.username}님 환영합니다.`);
+        break;
+      } else {
+        alert(`비밀번호가 틀렸습니다.`);
+      }
+
+    }
+  </script>
+</body>
+
+</html>

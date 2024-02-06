@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    var cat = {
+      name : '츄츄',
+      kind : '시츄',
+      age : '3',
+      favorite : ['츄르', '고등어', '꽁치']
+    }
+
+    //객체의 프로퍼티(속성인) 키의 존재 유무 확인 (in 키워드)
+    //cat이라는 객체 안에 kind라는 프로퍼티가 있니? 있으면 true, 없으면 false가 나오고, 해당 결과값이 변수 flag에 담긴다.
+    var flag = 'kind' in cat;
+    console.log(flag);
+
+    for(var key in cat) {
+      console.log(`cat의 속성은 ${key}, value는 ${cat[key]}`);
+
+      if(cat[key]==='favorite') {
+        for(var key in favorite) {
+          console.log(`cat의 favorite 목록은 ${key} 이다.`);
+        }
+      }
+    }
+  </script>
+</body>
+</html>
