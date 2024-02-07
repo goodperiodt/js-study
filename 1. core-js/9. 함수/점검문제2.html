@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+  Q. n개의 정수를 전달하면(정수가 n개 온다->배열에 담는다.)
+  해당 정수들의 총합과 평균을(리턴이 2개 -> 배열에 담는다? 객체에 담는다.) 
+     반환하는 함수 calcNumbersTotalAndAverage를 작성하세요.
+*/
+
+                                   //...numbers -> spread 문법
+function calcNumbersTotalAndAverage(...inputN) {
+  //입력받은 매개값을 담을 배열 선언
+  var inputNA = [];
+  inputNA.push(...inputN);
+  // console.log(inputNA);
+
+  //배열에 담긴 정수들의 총합을 구한다.
+  //배열은 for-of로, 요소의 처음부터 끝까지 출력하는
+
+  //우선 배열에 담긴 요소가 출력되면 그 요소의 모든 합을 누적할 변수 선언
+  var total=0;
+  for(var n of inputNA) {
+    total+=n;
+  } 
+  //total에는 모든 수의 총합이 담겨있다.
+  // console.log(total);
+
+  //이제 평균을 구한다.
+  //평균을 담을 변수를 선언한다.
+  var average = total/inputNA.length;
+  // console.log(average);
+
+  //평균과 총합을 리턴할건데, 객체에 담아 리턴할 것이다.
+  //-> return {
+  //    total: total,
+  //    avg: avg 
+  //    };
+
+  //좌항의 키명(total)과 우항의 변수명이 같은 경우,
+  //생략이 가능하다. 
+  //프로퍼티의 키를 생략하면 변수명이 키가 된다.
+  var final = {};
+  
+  final.total=total;
+  final.average=average;
+
+  return final;
+}
+
+var result = calcNumbersTotalAndAverage(89,23,56,45,10);
+//math.round ======>
+console.log(`총합: ${result.total}, 평균: ${result.average}`);
+
+   </script>
+</body>
+
+</html>
