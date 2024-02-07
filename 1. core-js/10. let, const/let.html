@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // let은 1. 변수 중복 선언 불가능하다.
+    // Identifier 'x' has already been declared.
+    let x = 100;
+    // let x = 200; (x)
+
+    //2. 블록 레벨 스코프를 인정하는  let
+    if(true) {
+      let y = 100;
+      console.log('if문 내부: '+y);
+    }
+    // console.log('if문 외부: '+y); (x)
+
+    // 3. 변수 호이스팅이 발생하지 않음.
+    // 변수는 선언하고 나서 사용(변수에 값을 대입/저장/할당)하는 것이지
+    // 사용한 후에 선언할 수 없다(var 제외)
+    z=10;
+    console.log(z);
+
+    let z;
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const x = '메롱';
+    console.log(x);
+    
+    
+    // const x = '안메롱'; (x)
+    // const로 선언한 변수(여기서는 x)는 상수로 취급됨.
+    // 상수는 초기화한 값외에 다른 값을 할당하려면 에러가 난다.
+    // 값의 변경의 가능성이 있는 변수는  let으로,
+    // 값 변경의 가능성이 없는, 항상 동일한 값을 유지하는 const
+    // x = '안메롱'; (x)
+
+    // const와 객체 (객체, 배열, 함수)
+    const person = {
+      name: 'park',
+      age: 20
+    };
+
+    //객체 내의 프로퍼티 값을 변경하는 것은 괜찮다.
+    //객체 주소값이 바뀌는 것이 아니니까
+    person.name = 'kim';
+    console.log(person.name);
+    
+    //const로 객체 선언시  const로 선언한 객체 자체를 변경하는 행위는 불가하다. 객체 자체를 변경하게 되면, 객체명(person)에 저장되는 주소 값이 변경되기 때문이다.
+    person = {
+      name: '100',
+      age: 30
+    };
+
+  </script>
+  
+</body>
+</html>
