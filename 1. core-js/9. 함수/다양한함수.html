@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var z ='hello'; // 전역 변수(global)
+
+    //즉시 실행 함수 (정의와 동시에 실행되는 함수)
+    (function (x, y) {
+      console.log(`x+y=${x+y}`);
+    })(60, 70);
+
+    //재귀함수
+    //함수 내에서 자기 자신을 다시 호출하여 작업을 수행하는 함수다.
+    //종료 조건을 직접 작성해야 한다.
+    console.log('------------------------------------------------');
+
+    function countdown(n) {
+      if (n < 0) return;
+
+      alert(n);
+      countdown(n - 1);
+    }
+
+    countdown(4);
+
+    console.log('------------------------------------------------');
+
+    function factorial(n) {
+      //5! -> 5*4*3*2*1
+      return n * factorial(n - 1);
+    }
+
+    function outer() {
+      var x = 1; // outer 함수 내에서만 사용가능한 지역변수
+
+      function inner() {
+        var y =2; // inner 함수 내에서만 사용가능한 지역변수
+        console.log(` x + y = ${x + y}`);
+      }
+
+      inner(); // outer함수 내에서만 사용이 가능합니다.
+    }
+    
+    //console.log(y); (x) y는 inner 내에서만 유효하다.
+    //console.log(x); (x) x는 outer 내에서만 유효하다.
+    outer();
+
+    //inner(); -> outer 함수 내에 선언된 함수 ->  outer를 호출하지 않으면 애초에 존재하지 않는 함수.
+    //console.log(x);
+
+    //outer() {} 함수 블록 내부에 있는 var x는 outer()함수가 호출될 때,
+    //생성이되는 변수, outer()함수가 호출되고, 블록{} 내부의 코드(명령문)가 모두 실행이 완료되면, 지역변수(x)는 그 외부에서 호출할 수 없다.
+
+    //**변수 검색시 지역변수부터 검색하기 때문에 전역 변수 검색속도는 느리다**
+  </script>
+</body>
+
+</html>
