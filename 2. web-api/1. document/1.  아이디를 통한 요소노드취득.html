@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li id="apple" style="background: red;">사과</li>
+    <li id="banana">바나나</li>
+    <li id="grape">포도</li>
+    <li id="peach">복숭아</li>
+  </ul>
+
+  <script>
+    const number=20;
+    //요소를 취득한 변수 앞에는 $달러기호를 붙여야 한다.
+    //관례적으로 노드 변수는 이름 앞에 $ 기호를 붙입니다.
+    //document객체의 함수 getElementById('얻고자하는 id 기입');
+    //id가 banana인 요소를 얻겠다.
+    const $banana = document.getElementById('banana');
+    const $apple = document.getElementById('apple');
+
+    console.log($banana);
+
+    $banana.textContent='뻐네이너';
+    //속성인 id의 값을 bnn으로 바꾼다.
+    $banana.attributes.id.value = 'bnn';
+    $apple.style.background='orange';
+  </script>
+</body>
+</html>

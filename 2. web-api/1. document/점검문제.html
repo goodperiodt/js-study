@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="wrap">
+    <ul id="list">
+      <li>리스트1</li>
+      <li>리스트2</li>
+      <li>리스트3</li>
+      <li>리스트4</li>
+      <li>리스트5</li>
+      <li>리스트6</li>
+      <li>리스트7</li>
+    </ul>
+  </div>
+
+  <script>
+    //1. id="list1"인 요소에 <li> 요소중  
+    //    홀수번째 요소만 선택후 배경색상 yellow 적용
+    // const $list = document.querySelectorAll('ul>li:nth-child(odd)');
+
+    //li요소 리스트를 전부 얻는다.
+    const $liList = document.querySelectorAll('#list li');
+
+    //li 요소를 유사배열로 얻는다.
+    console.log($liList);
+
+
+    //홀수 번째 요소만 선택후 배경색상 yellow  적용
+    for (let index = 0; index < $liList.length; index++) {
+      if (index % 2 === 0) {
+        $liList[index].style.background = 'yellow';
+      }
+    }
+
+    //2. id="list1"인 요소에 <li> 요소중
+    //   짝수번째 요소만 선택후 배경색상 gray 적용
+    //style에서 에러가 난다는데 왜?????
+    for (let index = 0; index < $liList.length; index++) {
+      if (index % 2 !== 0) {
+        // console.log($liList[index]);
+        $liList[index].style.background = 'gray';
+      }
+    }
+
+    //3. id="list1"인 요소에 <li> 요소중   
+    //  첫번째 <li>요소만 선택후 폰트색상 red 적용  
+    // 첫 번째 요소를 선택하는 방법:
+    //1. 모든 li요소를 얻어와 그 요소들중 인덱스 0번째가 첫 번째 요소다. 
+    //const $liList = document.querySelectorAll('#list li')
+    //$liList[0]
+
+    //2. const $firstLi = document.querySelector('li');
+    //querySelector는 선택한 요소?중 제일 첫번째로 발견한 요소를 담는다.
+    //권장하지 않음.
+    // const $firstLi = document.querySelector('li');
+    // console.log($firstLi);
+
+    //3. id가 list인(#list) 요소의 자식? 후손? 요소들중 가장 첫 번째 요소인 first-child를 선택한다.
+    // const $firstLi = document.querySelector('#list li:first-child');
+    // console.log($firstLi);
+
+    $liList[0].style.color = 'red';
+
+    //4. id="list1"인 요소에 <li> 요소중  
+    //   마지막번째 <li>요소만 선택후 폰트색상 green 적용  
+
+    //마지막번째 요소는 유사배열의 길이에서 -1을 빼면
+    //마지막 요소의 인덱스를 가리키게 된다.
+    //1. $liList[$liList.length-1].style.color = 'green';
+    //2. const lastLi = document.querySelector('#list li:last-child');
+    //   lastLi.style.color = 'green';
+
+    //$liList[6].style.color = 'green';
+    $liList[$liList.length - 1].style.color = 'green';
+
+    //5. id="list1"인 요소에 <li> 요소중 
+    //   두번째 <li>요소만 선택후 font-style: italic 적용
+
+    //1. $liList[1].style.fontStyle='italic';
+
+    // 2. const secondLi = document.querySelector('#list li:nth-child(2)');
+    // secondLi.style.fontStyle='italic';
+    $liList[1].style.fontStyle='italic';
+
+    //6. id="list1"인 요소에 <li> 요소중  3번째 이전(미만) 요소만 선택후, border: 2px dotted aqua 적용 (1, 2번째만 선택)
+
+    //console.log([$liList[0], $liList[1]]);
+    //유사배열은 함수의 적용을 받지 않는다. 단, for문 등 반복문은 사용이 가능하다.
+    const liList = [$liList[0], $liList[1]]
+    liList.forEach(e => e.style.border='2px dotted aqua');
+
+    // for(let li of liList) {
+    //   li.style.border='2px dotted aqua';
+    // }
+
+    //7. id="list1"인 요소에 <li> 요소중  3번째 이후요소만 선택후
+    //   border 2px dashed violet 적용 (3번째부터 끝까지 선택)
+
+    for(let index=2; index < $liList.length; index++) {
+      $liList[index].style.border='2px dashed violet';
+    }
+  </script>
+</body>
+
+</html>
