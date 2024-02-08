@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+     const userNames = ['김철수', '홍길동', '박영희'];
+
+     // 배열 디스트럭쳐링의 기본 문법
+     const [kim, hong, park] = userNames;
+
+     [kim, hong, park].forEach(a => console.log(a));
+
+     console.log('================================');
+     console.log(kim);
+     console.log(hong);
+     console.log(park);
+
+
+     //const copyFoods = foods.map(f => f);
+     //const copyFoods = foods.slice();
+
+    const foods = [];
+    const copyFoods = ['치킨너겟', ...foods, '닭강정']; // 스프레드 복사 
+
+    copyFoods[1] = '치킨버거'; 
+    copyFoods[2] = '사이다'; 
+
+    console.log(`copy: ${copyFoods}`);
+    console.log(`origin: ${foods}`);
+  </script>
+  
+</body>
+</html>
