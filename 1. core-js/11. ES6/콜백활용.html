@@ -44,34 +44,59 @@
     // 4명의 회원 중 취미가 딱 2개인 사람만 필터링 해주세요.
     // 취미가 2개인 사람만 모아서 새 배열에 다시 담아줘
 
-    function filterByHas2Hobbies() {
-      //객체를 
-      const filteredArray = [];
 
+    // 배열안에 회원이 4명 있고, 회원 4명을 모두 순회하려고 하면 for(변수 of 배열명) {...} 반복문을 사용한다.
+
+    //취미가 2개인 사람만 모아서 담을 새 배열명 선언
+
+
+    function have2Hobbies() {
+      const have2Hobbies = [];
       for (let user of userList) {
+        //user는 회원이다. 즉 객체 정보가 user 변수에 담긴다.
+        //배열 userList를 순회하면서 userList의 인덱스에 담긴 회원이
+        //돌면서 담기기 때문에  const가 아닌 let으로 user를 선언해준다.
         if (user.hobbies.length === 2) {
-          filteredArray.push(user);
+          have2Hobbies.push(user);
         }
       }
-      return filteredArray;
+      return have2Hobbies;
     }
+
+    console.log(have2Hobbies());
+
 
     // 서울 사는 사람들만 필터링해서 새로운 배열에 담아줘
-    function filterUserLivedInSeoul() {
-      const filteredArray = [];
-
+    function seoulInUsers() {
+      const seoulInUsers = [];
       for (let user of userList) {
         if (user.address === '서울') {
-          filteredArray.push(user);
+          seoulInUsers.push(user);
         }
       }
-      return filteredArray;
+      return seoulInUsers;
     }
 
-    //////////////////////////////////////////////////////////////
+    console.log(seoulInUsers());
 
-    //콜백을 이용한 필터링 함수
+    console.log('----------------------------------------------------');
+
+    // 콜백을 이용한 필터링 함수
+    // function seoulInUsers() {
+    //   const seoulInUsers = [];
+    //   for(let user of userList) {
+    //     if(???) {
+    //       seoulInUsers.push(user);
+    //     }
+    //   }
+    //   return seoulInUsers;
+    // }
+
+    //-----------------------------------------------------------------
+
+    // 이 함수는 필터함수야, 조건(condition)을 매개변수로 받아서
     function filter(condition) {
+      //조건을 통과한 사람정보(객체)만 이 배열(filteredArray)에 담긴다.
       const filteredArray = [];
 
       for (let user of userList) {
@@ -82,18 +107,69 @@
       return filteredArray;
     }
 
-    // 취미가 3개 이상인 사람만 필터링하기
-    const result1 = filter(user => user.hobbies.length === 3);
+    // const filter = condition = user => user.address === '서울' && user.hobbies.length === 2;
+    // 자바스크립트는 일급객체라 함수에 다른 함수를 매개로 전달하는 것이 가능하다.
 
-    // 주소가 서울이면서 직업이 게이머인 사람만 필터링 하기
+    //const result1 = filter(condition);
+    //const result1 = filter(function condition(user)) {
+    //  if(user.hobbies.length >= 3) {
+    //    filteredArray.push(user);
+    //  }
+    // return filteredArray;
+    // };
+
+    const result1 = filter(user => user.hobbies.length >= 3);
     const result2 = filter(user => user.address === '서울' && user.job === '게이머');
 
+
     console.log(result1);
-    console.log(result2);
 
-    // 조건절에 콜백함수를 대입
+    // // 취미가 3개 이상인 사람만 필터링하기
+    // const result1 = filter(user => user.hobbies.length === 3);
 
-    // ex. 회원 정보 중에 회원 이름만 전부 모아서 배열에 담아줘
+    // // 주소가 서울이면서 직업이 게이머인 사람만 필터링 하기
+    // const result2 = filter(user => user.address === '서울' && user.job === '게이머');
+
+    // console.log(result1);
+    // console.log(result2);
+
+    // // 조건절에 콜백함수를 대입
+
+    // // ex. 회원 정보 중에 회원 이름만 전부 모아서 배열에 담아줘
+    // 매핑
+    function map(callback) {
+      //특정 프로퍼티를 담을 배열
+      const mappedArray = [];
+
+      for (let user of userList) {
+        mappedArray.push(callback(user));
+      }
+      return mappedArray;
+    }
+
+    const nameList = map(user => user.userName);
+    console.log(nameList);
+
+    const addressList = map(user => user.address);
+    console.log(addressList);
+
+    // 회원목록에서 서울에 사는 회원들의
+    // 두번째 취미만 배열에 모아서
+    // xxx회원님의 2번째 취미는 xxx입니다. 를 반복해서 출력
+
+    userList
+      //filter(배열 userList에 있는 객체를 순회하면서 user라는 객체에 담고, 객체 user중 address가 서울인 사람들만 filter해서 리턴된다.)
+      //
+      .filter(user => user.address === '서울')
+      // .map(u => `${u.userName}님의 2번째 취미는 ${u.hobbies[1]}입니다.`)
+      .map(user => {
+        return {
+          name: user.userName,
+          secondHobby: user.hobbies[1]
+        }
+      })
+      //.forEach(a => console.log(a));
+      .forEach(a => console.log(`${a.name}회원님의 2번째 취미는 ${a.secondHobby} 입니다.`));
 
   </script>
 
