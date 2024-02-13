@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button type="button" id="btn1">클릭하세요!</button>
+  <button type="button" id="btn2">마우스를 올려보세요!</button>
+  <button type="button" id="btn3">마우스를 올렸다가 치워보세요!</button>
+  <button type="button" id="btn4">클릭하세요!</button>
+
+  <script>
+    function hello() {
+      alert('Hello');
+    }
+
+    const $btn1 = document.getElementById('btn1');
+    const $btn2 = document.getElementById('btn2');
+    const $btn3 = document.getElementById('btn3');
+    const $btn4 = document.getElementById('btn4');
+
+    // $btn에 onclick이 발생하면, hello를 할당하겠다.
+    // $btn1.onclick = hello;
+    $btn1.onclick = function() {
+      alert('안녕하세요!');
+    }
+
+    $btn2.onmouseover = function(){
+      alert('마우스 왜올려~~');
+    }
+
+    $btn3.onmouseout = () => alert('마우스 치웠네?');
+
+    // btn3의 핸들러 제거
+    $btn3.onmouseout = null;
+
+
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">클릭</button>
+
+  <script>
+    const $btn = document.getElementById('btn');
+
+    const helloHandler = () => {
+      alert('Hello World');
+    }
+    // (요소가 담긴) 변수명.addEventListener() 함수
+    // addEventListener('이벤트 타입', 핸들러 -< 콜백)
+                        // 이벤트타입
+    $btn.addEventListener('click', function() {
+      alert('안녕하세요!');
+    });
+
+
+    // addEventListener 함수는 하나의 요소에 여러 이벤트를 중첩해서
+    // 동작을 가능하게 한다. 프로퍼티 방식으로는 이벤트 1개만 걸 수 있다.
+    $btn.addEventListener('click', () => alert('안녕안한다!!!'));
+
+    $btn.addEventListener('click', helloHandler);
+
+    // 핸들러 제거: 이름이 있는 핸들러만 제거 가능하다.
+    // $btn.removeEventListener('click', helloHandler);
+
+  </script>
+</body>
+</html>
