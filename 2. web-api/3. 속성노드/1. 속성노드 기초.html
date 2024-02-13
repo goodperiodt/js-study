@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- input태그 value 값은 기본 값 설정시 사용하는 속성 -->
+  <input type="text" id="name" value="kim" class="user-name">
+  
+  <script>
+    // const $input = document.querySelector('.user-name');
+    // const $input = document.querySelector('name');
+    const $input = document.querySelector('input');
+    console.log($input);
+
+    //input태그가 가지는 속성을 전부 보려면,
+    console.log($input.attributes);
+    console.log($input.attributes[0]);
+    console.log($input.attributes[0].value);
+    console.log($input.attributes.type.value);
+    console.log($input.attributes.id.value);
+    console.log($input.attributes.class.value);
+
+    $input.attributes.value.value = '메롱메롱';
+
+    //input요소를 얻어, input요소의 속성중 type속성의
+    //값(value)을 password로 바꾸기
+    $input.attributes.type.value = 'password';
+
+
+
+  </script>
+  
+</body>
+</html>

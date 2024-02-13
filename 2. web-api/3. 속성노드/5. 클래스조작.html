@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background: lightgray;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 100px;
+    }
+
+    .red {
+      color: red;
+    }
+
+    .blue {
+      color: blue;
+    }
+
+    .circle {
+      border-radius: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box red">Hello</div>
+
+  <script>
+    const $box = document.querySelector('.box');
+    // 클래스명을 얻는 방법
+    // 1. console.log($box.attributes.class.value);
+    // 2. console.log($box.getAttribute('class'));
+
+    // 3.
+    console.log($box.className);
+
+    // 클래스명이 두 개 이상일 때는 공백을 이용해서 추가한다.
+    // $box.setAttribute('class', 'box blue');
+    // $box.className = 'box blue';
+
+    // 클래스명에서  box는 그대로 두고, red를 blue로 변경하고 싶다.
+    // 클래스를 각각 조작할 때는 className이 아닌
+    // classList 프로퍼티를 사용하는 것이 좋다.
+    console.log($box.classList);
+
+    // 요소에 클래스를 추가
+    // $box.className='box blue circle';
+    $box.classList.add('circle');
+    $box.classList.add('abc', 'def', 'ghi');
+    console.log($box.classList);
+    
+    // 요소에 특정 클래스를 교체
+    $box.classList.replace('red', 'blue');
+    
+    // 요소에 특정 클래스를 삭제
+    $box.classList.remove('circle');
+    $box.classList.remove('abc', 'def', 'ghi');
+
+    // 요소에 특정 클래스가 존재하는지 확인
+    // hasAttribute() 는 클래스라는 게 있니?
+    console.log($box.classList.contains('red'));
+
+    // toggle(): 해당 클래스가 존재하면 삭제, 존재하지 않으면 추가
+    $box.classList.toggle('circle');
+    $box.classList.toggle('blue');
+
+
+  </script>
+</body>
+
+</html>

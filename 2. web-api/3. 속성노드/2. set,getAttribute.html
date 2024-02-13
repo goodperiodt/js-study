@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <input type="text" id="name" value="kim" class="user-name">
+
+  <p id="text">Hello</p>
+
+  <script>
+
+    // input태그인데 속성이 text인 요소를 지목한다.
+    const $input = document.querySelector('input[type=text]');
+    console.log($input);
+
+
+    // input의 value라는 속성의 값을 얻는 방법
+    // 1. const inputValue = $input.attributes.value.value;
+    
+    // input이라는 요소에서 속성을 얻는 함수(.getAttributes())
+    // .getAttributes() 함수의 매개 값으로는 얻고 싶은 속성명을 기입한다.
+    const inputValue = $input.getAttribute('value');
+    console.log(inputValue);
+
+    // value 속성의 값을 변경하는 함수: .setAttribute('속성명')
+    // $input.attributes.value.value = '메롱메롱';
+    // input태그의 속성중  value라는 속성의 값을 안녕하세요! 로 셋팅하겠다.
+    $input.setAttribute('value', '안녕하세요!');
+
+    // p 태그에 title이라는 속성을 추가할 것이다.
+    // <p id="text">Hello</p>
+    const $p = document.getElementById('text');
+    console.log($p);
+
+    // setAttribute 속성은 기존에 없었던 속성을 추가해주는 역할도 한다.
+    // 요소.setAttribut('속성명', '속성값'); 
+    $p.setAttribute('title', '메롱');
+
+    // 속성의 존재 유무
+    // input요소에 class라는 속성이 있니? .hasAttribute('속성명');
+    console.log($input.hasAttribute('class'));
+    console.log($p.hasAttribute('class'));;
+
+      //true
+    if($input.hasAttribute('class')) {
+      $input.removeAttribute('class');
+    } else {
+      //없으면 클래스를 새롭게 부여해라~
+      $input.setAttribute('class', 'user-name');
+    }
+
+    console.log($input.hasAttribute('.class'));
+
+
+  </script>
+</body>
+</html>
