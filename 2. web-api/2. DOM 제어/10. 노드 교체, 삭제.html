@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="fruits">
+    <li>Apple</li>
+    <li>Banana</li>
+    <li>Grape</li>
+  </div>
+
+  <script>
+    const $fruits = document.getElementById('fruits');
+
+    const $mango = document.createElement('li');
+    $mango.textContent = 'Mango';
+
+    // 기존 요소(Apple)를 새로운 요소(Mango)로 대체하기
+    $fruits.replaceChild($mango, $fruits.firstElementChild);
+
+    $fruits.removeChild($fruits.lastElementChild);
+  </script>
+</body>
+</html>
