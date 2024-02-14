@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!--
+        이벤트와 요소 취득 및 문법을 활용하여
+        카운트를 누적해서 올리거나 내려주세요.
+        0아래로는 내려가지 않게 하세요.
+    -->
+
+  <h2>자바스크립트 카운트</h2>
+  <input type="text" id="result" value="0" readonly>
+  <button id="plus">+</button>
+  <button id="minus">-</button>
+
+  <script>
+    //input 요소 얻기
+    const $input = document.getElementById('result');
+
+    //plus button 요소 얻기
+    const $plus = document.getElementById('plus');
+
+    //minus button 요소 얻기
+    const $minus = document.getElementById('minus');
+
+    // plus minus 버튼 누름에 따라 변화되는 값을 담을 변수 선언
+    let count = 0;
+
+    $plus.addEventListener('click', e => {
+      $input.value = '';
+      count++;
+      $input.value += count;
+    });
+
+    $minus.addEventListener('click', e => {
+      if($input.value<=0) {
+        $input.preventDefault();
+      }
+
+      $input.value = '';
+      count--;
+      $input.value += count;
+    });
+
+  </script>
+</body>
+
+</html>
