@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p>아무곳이나 클릭하세요</p>
+
+  <input type="checkbox"><br>
+
+  <!-- 아무곳이나 클릭했을 때, 클래스명이 message인 해당 요소에
+  메시지를 나타나게 하려고 함 -->
+  <em class="message"></em>
+
+  <hr>
+
+  <input type="text" id="input-text">
+  <p class="msg"></p>
+
+  <script>
+    // 요소를 얻는 것이 아니라 문서 자체에 이벤트를 건다.
+    // 문서 전체에 이벤트 핸들러를 등록
+    // 함수의 매개변수로 e를 정의
+    // 이벤트 핸들러의 첫 번째 인수로 이벤트에 관련된
+    // 다양한 정보가 들어있는 이벤트 객체가 자동 전달됩니다.
+    // 핸들러 내에서 이벤트 객체(e)를 사용하려면,
+    // 적당한 매개변수(이름)를 선언해서 사용하시면 됩니다.
+    const $em = document.querySelector('.message');
+
+    document.addEventListener('click', function (e) {
+      console.log('클릭 이벤트 발생');
+      console.log(e);
+      $em.textContent = `x좌표: ${e.offsetX}, y좌표: ${e.offsetY}`;
+    });
+
+    const $checkbox = document.querySelector('input[type=checkbox]');
+
+    // checkbox의 상태가 변할 때마다 이벤트가 발생
+    $checkbox.addEventListener('change', function (e) {
+
+      // 실제 이벤트가 발생한 요소를 e.target 으로 확인할 수 있다.
+
+      // 실제 이벤트가 발생한 요소
+      // -> 이벤트가 발생한 요소가 누구인지를 파악하기 위해 많이 사용합니다: e.target
+
+      // checkbox에 change가 발생할 때 이벤트가 발생하고,
+      // 이벤트가 발생한 요소를 e.target으로 로그를 찍으면,
+      // 결과 값으로 <input type="checkbox"> 를 얻을 수 있다.
+      // console.log(e.target);
+
+      // 체크박스 or radio 버튼의 체크 유무를 확인하는 프로퍼티
+      // 체크가 되었다면, true를, 체크가 안되었다면, false를 반환한다.
+      if (e.target.checked) {
+        $em.textContent = '체크됨!';
+      } else {
+        $em.textContent = '체크 안됨!';
+      }
+    })
+
+    /////////////////////////////////////////////////////////////////
+
+    const $input = document.getElementById('input-text');
+    const $msg = document.querySelector('.msg');
+
+    // keydown은 키보드가 누르자마자 발생하는 이벤트
+    // keyup은 
+    $input.addEventListener('keyup', e => {
+      // console.log('keyup 이벤트 발생!');
+      // console.log(`입력한 값: ${e.target.value}`);
+
+      // 키보드에서 사용자가 어떤 자판을 눌렀는지 코드로 알려줌.
+      // 엔터 키코드는 13번이다.
+      // console.log(e.keyCode);
+
+      // keyup한 자판이  enter니?
+      // 사용자가 enter키를 눌렀니?
+      if (e.keyCode === 13) {
+
+        // 눌렀다면, 사용자가 입력한 값(e.target.value)을
+        // 클래스명이 msg인 요소에 나타나게 해줘
+        $msg.textContent = e.target.value;
+        e.target.value = ''; // 입력창(e.target 비우기)
+      } else if (e.keyCode === 27 ) {
+        $msg.textContent = '';
+      }
+    });
+  </script>
+</body>
+
+</html>
