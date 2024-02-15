@@ -19,6 +19,15 @@
         최 상위 객체인 window 객체를 통해 메서드 사용이 가능합니다.
         DOM -> window의 하위 객체.
         */
+
+        const $popup = document.getElementById('popup');
+        $popup.onclick = () => {
+          // resizable: 클라이언트가 창 크기를 조절할 수 있게 할지의 여부
+          //            resizable은 IE 브라우저에서만 작동할 수 있게 했다는데...
+          // scrollbars: 열린 창에 스크롤바의 존재 여부
+          //              크롬에서는 역시 작동하지 않는 scrollbars
+          window.open('https://www.naver.com', '네이버창', 'width=600, height=600, left=300, top=300, resizable=no, scrollbars=no');
+        }
        
   </script>
 </body>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .clock h1 {
+      font-size: 5em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="clock">
+    <h1>00:00:00</h1>
+  </div>
+
+
+
+  <script>
+    const $clock = document.querySelector('.clock h1');
+
+    function createTime() {
+      const date = new Date();
+      const hour = date.getHours();
+      const minute = date.getMinutes();
+      const second = date.getSeconds();
+
+      const ampm = hour >= 12 ? 'pm':'am';
+      
+
+      // 삼항 연산자를 사용할 것
+      const time = (hour < 10 ? '0' + hour : hour) + ':' +
+        (minute < 10 ? '0' + minute : minute) + ':' +
+        (second < 10 ? '0' + second : second);
+
+      $clock.textContent = time;
+      // $clock.textContent = `${hour}:${minute}:${second}`;
+
+    }
+    // 브라우저가 실행되자마자 바로 실행할 수 있도록
+    // 즉시 실행 함수
+    (function () {
+      createTime();
+      setInterval(createTime, 1000);
+    })();
+
+    // Date객체를 이용하여 날짜 정보를 얻어오신 후
+    // 화면에 보여질 시계 형식에 맞게 값을 얻어서
+    // 텍스트 형식으로 표현해 주세요.
+    // 만약 시/분/초 가 한 자리일 경우에는 앞에 영이 붙어야 합니다.
+  </script>
+
+</body>
+
+</html>

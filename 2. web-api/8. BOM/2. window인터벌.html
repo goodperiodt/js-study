@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button class="stop">스탑!</button>
+
+  <script>
+
+    // setInterval은 일정시간마다 함수를 반복실행합니다.
+    // 매개변수로 (실행할 함수, 인터벌 시간(밀리초))이 들어갑니다.
+
+    let count = 0;
+    const func = setInterval( () => {
+      console.log('하이하이');
+      count++;
+    }, 1000);
+
+    const $stop = document.querySelector('.stop');
+    $stop.onclick = () => {
+      // interval함수를 멈추는 clearInterval() 함수
+      // clearInterval() 함수의 매개로 setInterval() 함수명을 전달한다.
+        clearInterval(func);
+    }
+  </script>
+  
+</body>
+</html>
