@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>아무 곳이나 클릭하세요!</p>
+  <input type="checkbox">
+
+  <em class="message"></em>
+
+  <hr>
+
+  <input type="text" id="input-text">
+  <p class="msg"></p>
+
+  <hr>
+
+  <!-- a "parent" <div> containing a "child" <div> 
+    child인 div 요소를 포함하는 parent div 요소 -->
+  <div id="parent">click parent
+    <div id="child">click child</div>
+  </div>
+
+  <div id="reset">reset</div>
+  <pre id="output"></pre>
+
+  <script>
+    // 요소를 얻는 것이 아니라 문서 자체에 이벤트를 건다.
+    // 문서(document) 내 어느 곳이든 클리하면, 이벤트는 발생한다.
+    // e는 event 인터페이스로, event 인터페이스는 속성중 target을 갖고 있는데,
+    // event 인터페이스가 갖고 있는 target 속성은
+    // 이벤트가 발생한 대상의 객체다.
+    // document.addEventListener('click', (e) => {
+    //   console.log(e.target);
+    //   console.log(e.currentTarget);
+
+    // });
+
+    // The event handler is attached to the parent.
+    // The event handler(함수 또는 메서드)는 parent 에 연결된다.
+
+    //const $output = document.querySelector('#output');
+    const $output = document.getElementById('output');
+    console.log($output);
+    const $parent = document.getElementById('parent');
+    console.log($parent);
+
+    // Event.currentTarget은 이벤트 핸들러(함수 또는 메서드)가 연결된 객체,
+    // 이벤트 핸들러를 지정한 객체
+    // Event.target은 이벤트가 발생한 요소를 알려준다.
+    $parent.addEventListener('click', e => {
+      const $currentTarget = e.currentTarget.getAttribute("id");
+      const $target = e.target.getAttribute('id');
+      //.getAttribute("id");
+      $output.textContent = `Current Target: ${$currentTarget} \n`;
+      $output.textContent += `Target: ${$target}`;
+    });
+
+    const $reset = document.querySelector('#reset');
+    $reset.addEventListener('click', () => document.location.reload());
+
+  </script>
+</body>
+</html>

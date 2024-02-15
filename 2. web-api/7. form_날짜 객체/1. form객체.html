@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- form action ="제출할 경로" form태그의  name은 어떤 역할을 하는지 -->
+  <form action="#" name="regForm">
+
+    <!-- input태그의 속성 name은 값을 가져오는 역할을 한다. -->
+    아이디: <input type="text" name="id"> <br>
+    비밀번호: <input type="password" name="pw"> <br>
+    번호:
+    <div>
+      <select name="phone">
+        <option>010</option>
+        <option>011</option>
+        <option>018</option>
+      </select>
+      - <input type="text" name="phone2">
+      - <input type="text" name="phone3">
+    </div>
+
+    자기소개: <br>
+    <textarea name="intro" cols="50" rows="5"></textarea>
+    <br>
+
+    분야:
+    <!-- input 태그는 value가 있어야 값을 구분할 수 있다? -->
+    <input type="checkbox" name="inter" value="java">Java
+    <input type="checkbox" name="inter" value="db">DB
+    <input type="checkbox" name="inter" value="jsp">Jsp
+    <input type="checkbox" name="inter" value="javascript">JavaScript
+
+    <!--
+        button 태그에 type을 명시하지 않으면 form태그 내부에서
+        자동으로 submit으로 type이 인식됩니다.
+        // form 태그 내부에서 button 태그의 기본 역할은 submit
+        // form 태그 내부에서 button의 타입은 반드시 명시할 것,
+        // <button type="button"> 이렇게 명시해야 버튼을 깡통버튼으로 만들고
+        // 함수를 지정할 수 있다. 깡통버튼으로 만들고 함수를 정의해야
+        // 함수가 정상적으로 작동한다.
+
+        버튼에 이벤트를 걸어서 입력값 검증 등 로직을 구현하고 싶다면
+        반드시 type="button"으로 설정해 놓으셔야 합니다.
+    -->
+
+    <!-- 가입 이란 버튼을 누르면  check라는 함수가 호출되니
+    스크립트 태그 내에 check함수를 작성할 것! -->
+    <button type="button" id="regist" onclick="check()">가입</button>
+    <input type="reset" value="초기화">
+    <!-- <input type="submit" value="회원가입"> -->
+
+  </form>
+
+  <script>
+    function check() {
+      console.log('check함수 호출!');
+
+      // form  요소를 취득할 때, getElementById() 나 querySelector()
+      // 함수 또는 메서드를 사용할 필요없이
+      // document.폼 태그 속성인 name의 값을 바로 작성하여
+      // form요소를 얻을 수 있다.
+      // 그리고 form 태그 내 모든 요소의 name을 사용하여
+      // 바로 해당요소에 접근이 가능하다.
+
+      /*
+        - form 객체는 document 객체의 하위 객체 중 하나로
+        유일하게 name 속성으로만 form 요소의 접근이 가능합니다.
+        - form에도 name이 있어야 하며, name으로 내부 요소들에 접근이 가능합니다.
+        - document.폼이름.인풋이름 으로 접근합니다.
+        */
+      const $form = document.regForm;
+      if ($form.id.value === '') {
+        alert('아이디는 필수 값입니다.');
+        // form 태그 내부 id 입력창에 커서를 포커싱 하겠다는 함수: focus()
+        $form.id.focus();
+        return; // 입력 값이 마음에 들지 않기 때문에 이벤트를 강제 종료하겠다.
+      } else if ($form.id.value.length < 4) {
+        alert('아이디는 4글자 이상이어야 합니다.');
+        $form.id.focus();
+        return;
+      } else if ($form.pw.value === '') {
+        alert('비밀번호는 필수 값입니다.');
+        $form.pw.focus();
+        return;
+      } else if ($form.pw.value.length < 8) {
+        alert('비밀번호는 최소 8글자 이상으로 입력하세요!');
+        $form.pw.focus();
+        return;
+      } else {
+        // 유사배열객체 형태로 모든 check박스를 확인.
+        // console.log($form.inter);
+
+        //배열 스프레드 문법을 사용하여 
+        let flag = false;
+        for (let $ele of [...$form.inter]) {
+          if ($ele.checked) {
+            flag = true;
+            break;
+          }
+
+          // flag가 false 라면 --> !flag
+          // flag === false
+          if (!flag) {
+            alert('분야를 한 개 이상 체크하세요!');
+            return;
+          }
+
+          if (confirm('회원가입을 진행합니다.')) {
+            $form.submit();
+          } else {
+            alert('회원가입을 취소합니다.');
+            return;
+          }
+        }
+
+
+      }
+  </script>
+</body>
+
+</html>
