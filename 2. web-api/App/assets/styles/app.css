@@ -1,0 +1,129 @@
+/* 전체 태그는 패딩을 주어도 박스 사이즈가 변하지 않을 것을 셋팅, 다만 이 경우에 패딩 값을 주면 박스사이즈는 고정, 컨텐츠 값이 찌그러진다. */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    /* 폰트 패밀리를 지정할 때, 항상 2개 이상을 적용할 것 */
+    font-family: 'Roboto', open-sans;
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    background-color: #023d6d;
+    color: #fff;
+    /* rem은 html의 폰트사이즈가 기준이다. 
+    em은 자기 자신의 폰트사이즈가 기준이 된다.*/
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    width: 100%;
+}
+
+.card {
+    margin: 2rem auto;
+    width: 40rem;
+
+    /* 최대 가로길이를 40rem을 기준으로 90% 까지 */
+    max-width: 90%;
+
+    border: 1px solid #023d6d;
+    border-radius: 10px;
+    padding: 1rem;
+    color: #023d6d;
+}
+
+#calculator input {
+    font: inherit;
+    font-size: 3rem;
+    border: 2px solid #023d6d;
+    width: 10rem;
+
+    /* 인풋은 인라인 요소라 마진이 적용되지 않기에
+    display를 블락으로 설정한다. */
+    display: block;
+    margin: auto;
+
+    padding: 0.15rem;
+    color: #023d6d;
+    text-align: center;
+}
+
+#calculator input:focus {
+    /* 기본적으로 input태그에 포커싱이 들어가면 outline에 효과가 들어가는데, 그 기능을 방지하기 위해 outline을 none으로 설정한다. */
+    outline: none;
+}
+
+#calculator button {
+    font: inherit;
+    background: #023d6d;
+    color: #fff;
+    border: 1px solid #023d6d;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+#calculator button:focus {
+    outline: none;
+}
+
+#calculator button:hover,
+#calculator button:active {
+    background: #084f88;
+    border-color: #084f88;
+
+}
+
+#calc-actions button {
+    width: 4rem;
+}
+
+/* 사칙연산 4개의 버튼을 감싸는 외부 박스 요소 */
+#calc-actions {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+
+/* 기본 값을 나타내는 h2태그와 결과 값을 나타내는 h2태그를 감싸는 section 태그  */
+#results {
+    text-align: center;
+}
+
+#logs {
+    min-height: 10rem;
+    max-height: 15rem;
+
+    padding: 2rem 5rem;
+    overflow: auto;
+
+}
+
+.log-entries {
+    /* ul > li 들이 기본적으로 갖는 점을 없앤다. */
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: rgb(237, 78, 78);
+}
+
+.log-entries .log-entries-item {
+    width: 50%;
+    border-radius: 10px;
+
+    /* 여기서부터 이해하기 */
+    box-shadow: 2px 2px 2px #ccc;
+    padding: 0.75rem;
+    margin-bottom: 0.6rem;
+}
+
+
+
